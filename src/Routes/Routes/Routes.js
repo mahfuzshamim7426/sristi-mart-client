@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
                 path: '/',
                 // loader: () => fetch('https://bizon-learning-server.vercel.app/courses'),
                 element: <Home></Home>
-            }
+            },
             // {
             //     path: 'login',
             //     element: <Login></Login>
