@@ -1,0 +1,19 @@
+.quick-contact {
+    padding: 80px 0;
+    background-color: #bce0e0e8;
+}
+
+.service-btn {
+    border-radius: 10px;
+    border: none;
+    padding: 5px 10px;
+    color: white;
+    background-color: rgb(240, 38, 115);
+}
+
+.service-btn:hover {
+    background-color: rgb(240, 209, 38);
+    color: black;
+}
+
+@media screen and (max-width: 667px) {}
