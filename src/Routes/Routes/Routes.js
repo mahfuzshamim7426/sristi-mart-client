@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from '../../layout/Main';
 import AddProduct from '../../Pages/AddProduct/AddProduct';
 import Blog from '../../Pages/Blog/Blog';
+import CategoryDetails from '../../Pages/CategoryDetails/CategoryDetails';
 import Home from '../../Pages/Home/Home';
 import Login from '../../Pages/Login/Login/Login';
 import SignUp from '../../Pages/Login/SignUp/SignUp';
@@ -41,6 +42,11 @@ export const router = createBrowserRouter([
                 loader: () => fetch('http://localhost:5000/categories'),
                 element: <PrivateRoute> <SellerRoute><AddProduct></AddProduct></SellerRoute></PrivateRoute>
             },
+            {
+                path: '/category/:id',
+                element: <CategoryDetails></CategoryDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/products/category/${params.id}`)
+            }
 
         ]
     },
