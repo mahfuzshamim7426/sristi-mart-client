@@ -1,0 +1,15 @@
+.notfound {
+    padding: 60px;
+    background-image: url(../../../public/images/404\ bg.jpg);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: auto;
+}
+
+.notfound .notFounrTitle {
+    font-size: 130px;
+}
+
+.notfound .notFounrDes {
+    font-size: 70px;
+}

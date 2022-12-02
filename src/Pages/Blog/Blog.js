@@ -3,7 +3,7 @@ import './Blog.css'
 
 const Blog = () => {
     useEffect(() => {
-        document.title = "Blog Page Ms-Architect"
+        document.title = "Blog Page Sristi Mart"
     }, [])
 
     return (

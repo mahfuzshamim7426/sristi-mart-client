@@ -1,0 +1,20 @@
+.category-section {
+    padding: 40px 0;
+}
+
+.category-section .category-card {
+    cursor: pointer;
+}
+
+.category-section .header {
+    font-size: 30px;
+}
+
+.category-section .category-card:hover {
+    background-color: #f0d22638;
+    transition: .3s;
+}
+
+.category-section .category-card:hover .header {
+    color: #f0d126;
+}

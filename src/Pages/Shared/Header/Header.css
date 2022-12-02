@@ -10,18 +10,22 @@
     margin-left: 4px;
 }
 
-.dark-button {
-    background-color: #777373;
-    color: white;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 20px;
-    border: none;
-    margin-right: 5px;
+.logOut_btn {
+    border-radius: 15px;
     padding: 5px 10px;
+}
+
+.logOut_btn:hover {
+    background-color: rgb(240, 209, 38);
+}
+
+.logIn_btn {
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+
+.logIn_btn:hover {
+    background-color: rgb(240, 209, 38);
 }
 
 .user-photo {
