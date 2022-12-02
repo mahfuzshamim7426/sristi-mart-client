@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom';
 import logo from '../../../../src/logo.png';
 import './Header.css'
 import { AuthContext } from '../../../context/AuthProvider';
+import useSeller from '../../../hooks/useSeller';
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
+    const [isSeller, isSellerLoading] = useSeller(user?.email);
     console.log('user from header', user)
 
     const handleSignOut = () => {
@@ -28,8 +30,8 @@ const Header = () => {
                             <Link className='nav-link' to="/services">Advertise Items</Link>
                             <Link className='nav-link' to="/blog">Blog</Link>
                             {user &&
-                                user?.email &&
-                                <Link className='nav-link' to="/add-service">Add Products</Link>
+                                user?.email && isSeller &&
+                                <Link className='nav-link' to="/add-product">Add Products</Link>
                             }
 
                         </Nav>

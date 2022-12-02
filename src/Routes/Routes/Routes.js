@@ -7,6 +7,7 @@ import Login from '../../Pages/Login/Login/Login';
 import SignUp from '../../Pages/Login/SignUp/SignUp';
 import NotFoundPage from '../../Pages/NotFoundPage/NotFoundPage';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import SellerRoute from '../SellerRoute/SellerRoute';
 
 export const router = createBrowserRouter([
     {
@@ -38,7 +39,7 @@ export const router = createBrowserRouter([
             {
                 path: 'add-product',
                 loader: () => fetch('http://localhost:5000/categories'),
-                element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
+                element: <PrivateRoute> <SellerRoute><AddProduct></AddProduct></SellerRoute></PrivateRoute>
             },
 
         ]
