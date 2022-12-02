@@ -43,6 +43,8 @@ const AddProduct = () => {
             seller,
         }
 
+        console.log('productData', productData)
+
         fetch('http://localhost:5000/products', {
             method: 'POST',
             headers: {
@@ -92,7 +94,7 @@ const AddProduct = () => {
                 </Form.Group>
                 <select
                     name='condition'
-                    class="form-select" aria-label="Default select example">
+                    className="form-select" aria-label="Default select example">
                     <option selected>Condition</option>
                     <option value="Excellent">Excellent</option>
                     <option value="Good">good</option>
@@ -100,7 +102,7 @@ const AddProduct = () => {
                 </select>
                 <select
                     name='usedYear'
-                    class="form-select" aria-label="Default select example">
+                    className="form-select" aria-label="Default select example">
                     <option selected>Used Year</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -113,7 +115,7 @@ const AddProduct = () => {
                 </select>
                 <select
                     name='category'
-                    class="form-select" aria-label="Default select example">
+                    className="form-select" aria-label="Default select example">
                     <option selected>Category</option>
                     {allCategories &&
                         allCategories?.map((category, index) => (
