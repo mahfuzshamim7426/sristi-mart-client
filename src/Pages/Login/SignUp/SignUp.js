@@ -13,9 +13,12 @@ const SignUp = () => {
     const [createdUserEmail, setCreatedUserEmail] = useState('')
     const [token] = useToken(createdUserEmail);
     const navigate = useNavigate();
-    if (token) {
-        navigate('/');
-    }
+
+    useEffect(() => {
+        if (token) {
+            navigate('/');
+        }
+    }, [token])
 
     useEffect(() => {
         document.title = "Signup Page Ms-Architect"
@@ -29,11 +32,7 @@ const SignUp = () => {
         const email = form.email.value;
         const name = form.name.value;
         const password = form.password.value;
-        const photoURL = form.file.value;
-        // console.log('name', name)
-        // console.log('email', email)
-        // console.log('photoURL', photoURL)
-        // console.log('password', password)
+        const role = form.role.value;
 
         if (password.length < 6) {
             setError('Password should be 6 characters or more.');
@@ -54,7 +53,7 @@ const SignUp = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        saveUser(name, email);
+                        saveUser(name, email, role);
                     })
                     .catch(err => {
                         console.log(err)
@@ -67,8 +66,8 @@ const SignUp = () => {
             });
     }
 
-    const saveUser = (name, email) => {
-        const user = { name, email };
+    const saveUser = (name, email, role) => {
+        const user = { name, email, role };
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
@@ -92,32 +91,27 @@ const SignUp = () => {
                     <Form.Control className='form-item' name="name" type="name" placeholder="Enter Full Name" />
 
                 </Form.Group>
-                {/* <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Upload Photo</Form.Label>
-                    <Form.Control className='form-item' name="file" type="file" placeholder="Enter email" />
-
-                </Form.Group> */}
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control className='form-item' name="email" type="email" placeholder="Enter email" />
-
                 </Form.Group>
-
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control className='form-item' name="password" type="password" placeholder="Password" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
+                <select
+                    name='role'
+                    class="form-select" aria-label="Default select example">
+                    <option selected>Role</option>
+                    <option value="seller">Seller</option>
+                    <option value="buyer">Buyer</option>
+                </select>
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
             </Form>
             <br />
             <p>Already Have an Account <Link to='/login'>Login</Link></p>
-            {/* <button className="btn btn-outline btn-success"><div className='d-flex align-items-center'><FaGoogle /><div className='ms-2'>Google Login</div></div></button> */}
-
             <p className='text-error'>{error}</p>
         </div>
 

@@ -8,7 +8,7 @@ import './Header.css'
 import { AuthContext } from '../../../context/AuthProvider';
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
-    console.log('user', user)
+    console.log('user from header', user)
 
     const handleSignOut = () => {
         logOut()
