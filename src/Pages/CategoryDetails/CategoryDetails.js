@@ -12,7 +12,7 @@ const CategoryDetails = () => {
     let { id } = useParams();
 
     useEffect(() => {
-        document.title = "Product Details Page Ms-Architect"
+        document.title = "Product Details Page Sristi Mart"
     }, [])
 
 
