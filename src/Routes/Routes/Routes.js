@@ -6,6 +6,7 @@ import CategoryDetails from '../../Pages/CategoryDetails/CategoryDetails';
 import Home from '../../Pages/Home/Home';
 import Login from '../../Pages/Login/Login/Login';
 import SignUp from '../../Pages/Login/SignUp/SignUp';
+import MyProduct from '../../Pages/MyProduct/MyProduct';
 import NotFoundPage from '../../Pages/NotFoundPage/NotFoundPage';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import SellerRoute from '../SellerRoute/SellerRoute';
@@ -46,7 +47,11 @@ export const router = createBrowserRouter([
                 path: '/category/:id',
                 element: <CategoryDetails></CategoryDetails>,
                 loader: ({ params }) => fetch(`https://sristi-mart-server.vercel.app/products/category/${params.id}`)
-            }
+            },
+            {
+                path: 'my-product',
+                element: <PrivateRoute> <SellerRoute><MyProduct></MyProduct></SellerRoute></PrivateRoute>
+            },
 
         ]
     },
