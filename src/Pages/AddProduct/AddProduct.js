@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../context/AuthProvider';
 import './AddProduct.css';
@@ -8,7 +8,7 @@ import './AddProduct.css';
 const AddProduct = () => {
     const { user } = useContext(AuthContext);
     const allCategories = useLoaderData()
-
+    const navigate = useNavigate();
     useEffect(() => {
         document.title = "Add Prodyct Page Sristi Mart"
     }, [])
@@ -56,6 +56,7 @@ const AddProduct = () => {
             .then(response => response.json())
             .then(response => {
                 toast.success('Product Added Successfully', { autoClose: 2000, closeOnClick: true, })
+                navigate('/my-product')
                 form.reset();
             })
             .catch(error => {
