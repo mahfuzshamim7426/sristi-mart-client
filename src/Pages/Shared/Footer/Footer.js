@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -6,8 +6,14 @@ import logo from '../../../logo.png';
 import './Footer.css'
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaLinkedin, FaPinterest, FaTwitter } from 'react-icons/fa';
+import { AuthContext } from '../../../context/AuthProvider';
+import useSeller from '../../../hooks/useSeller';
+import { Nav } from 'react-bootstrap';
 
 const Footer = () => {
+    const { user, logOut } = useContext(AuthContext)
+    const [isSeller, isSellerLoading] = useSeller(user?.email);
+
     return (
         <div className='footer'>
             <Container>
@@ -16,10 +22,17 @@ const Footer = () => {
                         <Link className='navbar-brand text-2xl' to="/">
                             <img className='logo-img' src={logo} alt="" /><small className='h3'>Sristi Mart</small>
                         </Link>
-                        <Link className='footer-menu-item' to='/'>Home</Link>
-                        <Link className='footer-menu-item' to='/courses'>Courses</Link>
-                        <Link className='footer-menu-item' to='/blog'>Blog</Link>
-                        <Link className='footer-menu-item' to='/faq'>FAQ</Link>
+
+                        <Link className='nav-link' to="/">Home</Link>
+                        {user &&
+                            user?.email && isSeller &&
+                            <Link className='nav-link' to="/my-product">My Products</Link>
+                        }
+                        <Link className='nav-link' to="/blog">Blog</Link>
+                        {user &&
+                            user?.email && isSeller &&
+                            <Link className='nav-link' to="/add-product">Add Products</Link>
+                        }
 
                     </Col>
 
