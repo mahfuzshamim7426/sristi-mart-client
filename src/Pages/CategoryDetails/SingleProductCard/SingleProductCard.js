@@ -26,7 +26,7 @@ const SingleProductCard = ({ product }) => {
 
     // useEffect(() => {
     //     if (product?._id) {
-    //         fetch(`http://localhost:5000/products/category/${product?.seller}`, {
+    //         fetch(`https://sristi-mart-server.vercel.app/products/category/${product?.seller}`, {
     //             method: 'GET',
     //             headers: {
     //                 'content-type': 'application/json',

@@ -45,7 +45,7 @@ const AddProduct = () => {
 
         console.log('productData', productData)
 
-        fetch('http://localhost:5000/products', {
+        fetch('https://sristi-mart-server.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

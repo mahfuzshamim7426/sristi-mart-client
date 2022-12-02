@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                loader: () => fetch('http://localhost:5000/categories'),
+                loader: () => fetch('https://sristi-mart-server.vercel.app/categories'),
                 element: <Home></Home>
             },
             {
@@ -39,13 +39,13 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'add-product',
-                loader: () => fetch('http://localhost:5000/categories'),
+                loader: () => fetch('https://sristi-mart-server.vercel.app/categories'),
                 element: <PrivateRoute> <SellerRoute><AddProduct></AddProduct></SellerRoute></PrivateRoute>
             },
             {
                 path: '/category/:id',
                 element: <CategoryDetails></CategoryDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://sristi-mart-server.vercel.app/products/category/${params.id}`)
             }
 
         ]
